@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <UserSecretsId>e00b7af8-2d19-4419-b1d5-eb88c329855e</UserSecretsId>
+    <UserSecretsId>d2529a91-394e-4b36-8d05-c671acec0e02</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
