@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Catalog.Storage;
+using Catalog.Storage.Interfaces.Managers;
+using Catalog.Storage.Interfaces.Repositories;
+using Catalog.Storage.Managers;
+using Catalog.Storage.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace Ordering.API
+namespace Catalog.API
 {
     public class Startup
     {
@@ -25,7 +31,18 @@ namespace Ordering.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+             services.AddDbContext<DataContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("PostgreSQL")));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddScoped<ICatalogsRepository, CatalogRepository>();
+            services.AddScoped<ICatalogsManager, CatalogManager>();
+
+            services.AddMvc();
+            services.AddMemoryCache();
+
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
