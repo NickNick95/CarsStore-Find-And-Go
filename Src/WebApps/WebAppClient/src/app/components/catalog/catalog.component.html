@@ -1,0 +1,20 @@
+<div class="catalog_content">
+
+    <div class="catalog_list">
+        <div class="cars_categories">
+            <span>All cars</span>
+            <a href="#"><span>new cars</span></a>
+            <a href="#"><span>used cars</span></a>
+            <input type="button" class="add-car" value="Add car" (click)="addCar()"/>
+        </div>
+        <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile *ngFor="let item of catalogs; let i = index">
+                <div class="catalog_list_item">
+                    <a href="#">{{item.title}}</a>
+                    <img src="" alt="" />
+                    <div class="description">{{item.description}}</div>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>

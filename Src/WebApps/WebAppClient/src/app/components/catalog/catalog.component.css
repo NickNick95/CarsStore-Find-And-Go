@@ -1,0 +1,66 @@
+.catalog_list_item{
+	background: #ecf0f1;
+	width: 100%;
+	height: 100px;
+}
+
+.catalog_list{
+	width: 70%;
+	padding: 10px, 0px, 10px, 0px;
+	background: #afafaf44;
+	overflow-y: auto;
+	max-height: 400px;
+}
+
+.catalog_list .cars_categories{
+	background:  #d0d3d4;
+	padding-left: 10px;
+}
+
+
+.catalog_list .cars_categories span,
+.catalog_list .cars_categories a{
+	overflow: hidden;
+	display: inline-block;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 12px;
+	line-height: 16px;
+}
+
+.catalog_list .cars_categories a{
+	padding: 6px 10px 7px 11px;
+}
+
+.catalog_list .cars_categories a span{
+	padding: 0;	
+	background: none;
+	border-radius: 0;
+	color: #798FA1;
+	text-shadow:0 0 0 #798FA1;
+	background: #ecf0f1 repeat-x 0 bottom;
+}
+
+.catalog_list .cars_categories a:hover span{
+	background: none;
+}
+
+.catalog_list .cars_categories span,
+.catalog_list .cars_categories a.active{
+	border-radius: 5px;
+	background: #798FA1 repeat-x 0 0;
+	color: #FFFFFF;
+	text-shadow:0 0 0 #FFFFFF;
+	padding: 6px 10px 7px 12px;
+}
+
+.add-car {
+	background: none;
+	border: none;
+	color: #FFFFFF;
+	float: right;
+	padding:  6px 10px 7px 12px; 
+}
+
+
+
