@@ -1,0 +1,17 @@
+<div class="catalog-add">
+  <div class="catalog-title">
+    <label>Title:</label>
+    <input class="form-control" type="text" required minlength="4" [(ngModel)]="catalog.title" name="title" required />
+  </div>
+
+  <div class="catalog-description">
+    <label>Description:</label>
+    <input class="form-control" type="text" required minlength="4" [(ngModel)]="catalog.description" name="title" required />
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12 text-center mt-2">
+    <button class="btn btn-lg btn-block active btn-secondary btn-save" name="submitButton" #submitButton type="submit" (click)="save()">Save</button>
+  </div>
+</div>

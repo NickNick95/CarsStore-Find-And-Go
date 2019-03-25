@@ -4,6 +4,7 @@ using Catalog.Storage.Interfaces.Managers;
 using Catalog.Storage.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Catalog.API.Controllers
 {
@@ -19,7 +20,7 @@ namespace Catalog.API.Controllers
         }
 
         [HttpGet]
-        public JsonResult Get()
+        public JsonResult GetCatalogs()
         {
             var catalogs = _сatalogManager.GetAll();
 
@@ -27,7 +28,7 @@ namespace Catalog.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<CatalogModel> Get(string id)
+        public ActionResult<CatalogModel> GetCatalogById(string id)
         {
             if (string.IsNullOrEmpty(id))
                 return BadRequest();
@@ -41,7 +42,7 @@ namespace Catalog.API.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody] CatalogModel catalogModel)
+        public ActionResult AddCatalog([FromBody] CatalogModel catalogModel)
         {
             if (string.IsNullOrEmpty(catalogModel.Title))
                 return BadRequest();
@@ -52,7 +53,7 @@ namespace Catalog.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Put(string id, [FromBody] CatalogModel catalogModel)
+        public ActionResult UpdateCatalog(string id, [FromBody] CatalogModel catalogModel)
         {
             if (string.IsNullOrEmpty(id))
                 return BadRequest();
@@ -63,7 +64,7 @@ namespace Catalog.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public ActionResult Delete(string id)
+        public ActionResult DeleteCatalog(string id)
         {
             if (string.IsNullOrEmpty(id))
                 return BadRequest();

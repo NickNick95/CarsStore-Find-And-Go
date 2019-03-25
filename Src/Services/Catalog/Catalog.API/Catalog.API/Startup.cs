@@ -31,8 +31,8 @@ namespace Catalog.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-             services.AddDbContext<DataContext>(options =>
-                options.UseNpgsql(Configuration.GetConnectionString("PostgreSQL")));
+            services.AddDbContext<DataContext>(options =>
+               options.UseNpgsql(Configuration.GetConnectionString("PostgreSQL")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -41,6 +41,8 @@ namespace Catalog.API
 
             services.AddMvc();
             services.AddMemoryCache();
+
+            services.AddCors();
 
             services.AddSession();
         }
@@ -58,6 +60,7 @@ namespace Catalog.API
                 app.UseHsts();
             }
 
+            app.UseCors(options => options.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader());
             app.UseHttpsRedirection();
             app.UseMvc();
         }
