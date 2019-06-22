@@ -20,7 +20,7 @@ namespace Catalog.API.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetCatalogs()
+        public async Task<JsonResult> GetCatalogs()
         {
             var catalogs = _сatalogManager.GetAll();
 
@@ -28,7 +28,7 @@ namespace Catalog.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<CatalogModel> GetCatalogById(string id)
+        public async Task<ActionResult<CatalogModel>> GetCatalogById(string id)
         {
             if (string.IsNullOrEmpty(id))
                 return BadRequest();
@@ -42,7 +42,8 @@ namespace Catalog.API.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddCatalog([FromBody] CatalogModel catalogModel)
+        [HttpPost("{Add}")]
+        public async Task<ActionResult> AddCatalog([FromBody] CatalogModel catalogModel)
         {
             if (string.IsNullOrEmpty(catalogModel.Title))
                 return BadRequest();
@@ -53,7 +54,7 @@ namespace Catalog.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult UpdateCatalog(string id, [FromBody] CatalogModel catalogModel)
+        public async Task<ActionResult> UpdateCatalog(string id, [FromBody] CatalogModel catalogModel)
         {
             if (string.IsNullOrEmpty(id))
                 return BadRequest();
@@ -64,7 +65,7 @@ namespace Catalog.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public ActionResult DeleteCatalog(string id)
+        public async Task<ActionResult> DeleteCatalog(string id)
         {
             if (string.IsNullOrEmpty(id))
                 return BadRequest();
