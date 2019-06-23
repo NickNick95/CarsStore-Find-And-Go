@@ -1,0 +1,21 @@
+<div class="catalog-add">
+    <div class="catalog-title">
+        <a href="#">{{catalog.title}}</a>
+        <img src="" alt="" />
+        <div class="description">{{catalog.description}}</div>
+    </div>
+  
+    <div class="catalog-description">
+      <label>Text messages:</label>
+
+      <textarea form-control>
+          Please, write additional your requirements
+        </textarea>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-12 text-center mt-2">
+      <button class="btn btn-lg btn-block active btn-secondary btn-save" name="submitButton" #submitButton type="submit" (click)="sentMessage()">Sent Message</button>
+    </div>
+  </div>

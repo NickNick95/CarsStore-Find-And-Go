@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <div class="wrapped-div">
+    <div class="tab-header">
+      <div *ngIf="userTokeId">
+        <input type="button" class="add-car" value="Logout" (click)="onLogout()" />
+      </div>
+      <div *ngIf="!userTokeId">
+        <h2 routerLink='/login' routerLinkActive='active'>Sign In</h2>
+        <h2 routerLink='/registration' routerLinkActive='active'>Sign Up</h2>
+     </div>
+    </div>
+    </div>
+  </div>

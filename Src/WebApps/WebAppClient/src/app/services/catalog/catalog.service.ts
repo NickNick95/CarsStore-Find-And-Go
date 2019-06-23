@@ -17,7 +17,7 @@ export class CatalogService {
         });
     }
 
-    public getCatalog(id: string) {
+    public getCatalog(id: string) : Promise<Catalog> {
         return new Promise((resolve, reject) => {
             this.dataService.getCatalog(id).then(catalogResponse => {
                 if (!catalogResponse) { return reject(id); }

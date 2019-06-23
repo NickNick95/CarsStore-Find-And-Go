@@ -9,15 +9,17 @@ import { CatalogService } from 'src/app/services/catalog/catalog.service';
   styleUrls: ['./catalog.component.css']
 })
 export class CatalogComponent implements OnInit {
-  
-   public catalogs : Catalog[]; 
+
+  public usreTokenId: string;
+  public catalogs: Catalog[];
 
   constructor(private catalogService: CatalogService,
-              private route:ActivatedRoute, 
-              private router:Router) {
+    private route: ActivatedRoute,
+    private router: Router) {
 
     this.catalogs = [];
-   }
+    this.usreTokenId = localStorage.getItem('token');
+  }
 
   ngOnInit() {
     console.log('Start');
@@ -29,9 +31,18 @@ export class CatalogComponent implements OnInit {
   }
 
   addCar() {
-    this.router.navigate(['/addCar']);
+    if (this.usreTokenId)
+      this.router.navigate(['/addCar']);
+    else
+      this.router.navigate(['/login']);
   }
 
+  buyCar(id: string) {
+    if (this.usreTokenId)
+      this.router.navigate(['/buyCar', id]);
+    else
+      this.router.navigate(['/login']);
+  }
 }
 
 

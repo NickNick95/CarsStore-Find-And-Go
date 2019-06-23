@@ -11,7 +11,6 @@ namespace Web.Shopping.Controllers
     [ApiController]
     public class CatalogController : ControllerBase
     {
-
         private readonly ICatalogService _catalogManager;
 
         public CatalogController(ICatalogService catalogService)

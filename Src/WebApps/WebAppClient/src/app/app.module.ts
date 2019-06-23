@@ -3,8 +3,10 @@ import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+
+import { ToastrModule } from 'ngx-toastr';
 
 import {MatDialogModule} from '@angular/material/dialog'; 
 
@@ -17,21 +19,34 @@ import { AddCatalogComponent } from './components/add-catalog/add-catalog.compon
 import { CatalogService } from './services/catalog/catalog.service';
 import { DataService } from './services/data.service';
 
+import { LoginComponent } from './components/user/login/login.component';
+import { RegistrationComponent } from './components/user/registration/registration.component';
+import { UserComponent } from './components/user/user/user.component';
+import { CarBuyComponent } from './components/car-buy/car-buy.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     CatalogComponent,
-    AddCatalogComponent
+    AddCatalogComponent,
+    RegistrationComponent,
+    LoginComponent, 
+    UserComponent, 
+    CarBuyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatGridListModule, 
+    ReactiveFormsModule,
     BrowserAnimationsModule, 
     MatButtonModule,
     MatDialogModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule, 
+    ToastrModule.forRoot({
+      progressBar: true
+    }),
   ],
   providers: [
     HttpClientModule,

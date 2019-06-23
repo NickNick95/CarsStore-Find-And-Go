@@ -27,7 +27,7 @@ export class DataService {
 
     public getCatalog(id: string) {
         const endpoint = `${this._catalogUrl}/catalog/${id}`;
-        return this.http.post<CatalogResponse>(endpoint, {})
+        return this.http.get<CatalogResponse>(endpoint, {})
             .toPromise()
             .catch(err => this._handleError(err));
     }
